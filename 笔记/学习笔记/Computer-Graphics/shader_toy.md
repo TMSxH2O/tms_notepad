@@ -6,11 +6,6 @@ https://www.shadertoy.com/
 #define FLT_MAX 3.402823466e+38
 
 /* ================== 常量定义 ==================== */
-// 窗口大小
-const vec2 windowSize = vec2(640, 360);
-// 相机中心
-const vec2 center = windowSize/2.0;
-
 // 采样点控制
 const int sample_count = 5;
 const int total_count = sample_count*sample_count;
@@ -24,6 +19,7 @@ const int sphere_count = 4;
 // 定义 Material 类型
 const int material_type_lambertian = 0;
 const int material_type_metal = 1;
+const int material_type_dielectric = 2;
 
 /* ================== 类定义 ==================== */
 struct ray {
@@ -35,7 +31,7 @@ struct material {
     vec3 color;
     int type;
     // Optional
-    float fuzz;
+    float fuzz; // dielectric.ir
 };
 
 struct sphere {
@@ -97,6 +93,28 @@ vec3 random_in_hemisphere(in ray r, in vec3 normal) {
         return -in_unit_sphere;
 }
 
+
+// 折射
+bool dielectric_scatter(in material mat, in ray r, inout hit_record rec, inout vec3 attenuation, inout ray scattered) {
+    attenuation = vec3(1.0);
+    float refraction_ratio = rec.front_face ? (1.0 / mat.fuzz) : mat.fuzz;
+
+    vec3 unit_direction = normalize(r.direction);
+    float cos_theta = min(dot(-unit_direction, rec.normal), 1.0);
+    float sin_theta = sqrt(1.0 - cos_theta*cos_theta);
+
+    bool cannot_refract = refraction_ratio * sin_theta > 1.0;
+    vec3 direction;
+
+    if (cannot_refract)
+        direction = reflect(unit_direction, rec.normal);
+    else
+        direction = refract(unit_direction, rec.normal, refraction_ratio);
+
+    scattered = ray(rec.p, direction);
+    return true;
+}
+
 // 金属材质反射
 bool metal_scatter(in material mat, in ray r, inout hit_record rec, inout vec3 attenuation, inout ray scattered) {
     vec3 reflected = reflect(normalize(r.direction), rec.normal);
@@ -121,6 +139,8 @@ bool scatter(in material mat, in ray r, inout hit_record rec, inout vec3 attenua
         return metal_scatter(mat, r, rec, attenuation, scattered);
     case 1:
         return lambertian_scatter(mat, r, rec, attenuation, scattered);
+    case 2:
+        return dielectric_scatter(mat, r, rec, attenuation, scattered);
     }
 }
 
@@ -168,24 +188,18 @@ bool hit_list(in ray r, in sphere s[sphere_count], float t_min, float t_max, ino
 // 生成场景球体的方法
 sphere[sphere_count] create_sphere() {
     sphere s1 = sphere(vec3( 0.0, -100.5, -1.0), material(vec3(0.8, 0.8, 0.0), 1, 0.0), 100.0);
-    sphere s2 = sphere(vec3( 0.0,    0.0, -1.0), material(vec3(0.7, 0.3, 0.3), 1, 0.0),   0.5);
-    sphere s3 = sphere(vec3(-1.0,    0.0, -1.0), material(vec3(0.8, 0.8, 0.8), 0, 0.3),   0.5);
-    sphere s4 = sphere(vec3( 1.0,    0.0, -1.0), material(vec3(0.8, 0.6, 0.2), 0, 0.3),   0.5);
+    sphere s2 = sphere(vec3( 0.0,    0.0, -1.0), material(vec3(0.0, 0.0, 0.0), 2, 1.3),   0.5);
+    sphere s3 = sphere(vec3(-1.0,    0.0, -1.0), material(vec3(0.8, 0.8, 0.8), 1, 0.0),   0.5);
+    sphere s4 = sphere(vec3( 1.0,    0.0, -1.0), material(vec3(0.8, 0.6, 0.2), 0, 0.0),   0.5);
     return sphere[](s1, s2, s3, s4);
 }
 
 vec3 color(in ray r) {
     hit_record rec;
 
-    //sphere s1 = sphere(vec3(0.0, 0.0, -1.0), 0.5);
-    //sphere s2 = sphere(vec3(0.0, -100.5, -1.0), 100.0);
-
-    //sphere s_list[2] = sphere[](s1, s2);
     sphere s_list[sphere_count] = create_sphere();
 
     int max_depth = 50;
-
-    // float result_value = 1.0;
 
     ray temp_ray = r;
     ray scattered = r;
@@ -215,13 +229,21 @@ vec3 color(in ray r) {
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
+    vec2 center = iResolution.xy / 2.0;
+
     // 抗锯齿
     ray r_list[total_count];
     for (int i = 0; i < sample_count; ++i) {
         float y = float(i+1)*sample_interval-0.5;
         for (int j = 0; j < sample_count; ++j) {
             float x = float(j+1)*sample_interval-0.5;
-            r_list[i*sample_count+j] = ray(vec3(0.0), vec3(fragCoord.x+x, fragCoord.y+y, 0.0)-vec3(center.xyy));
+            vec3 origin;
+            if (iMouse.z > 0.0) {
+                origin = vec3(0.0)-vec3(iMouse.xy-center, 0.0)/100.0;
+            } else {
+                origin = vec3(0.0);
+            }
+            r_list[i*sample_count+j] = ray(origin, vec3(fragCoord.x+x, fragCoord.y+y, 0.0)-vec3(center.xyy));
         }
     }
 

@@ -43,3 +43,13 @@
 
 1. 在工程属性中，设置 “配置属性 - 链接器 - 输入 - 忽略特定库” 添加所警告的库
 2. 在工程属性中，设置 “配置属性 - 链接器 - 命令行” 添加，`/NODEFAULTLIB:"xxx.lib"`
+
+## 离线插件安装
+
+    首先，开启提供的控制台（x64 Native Tools Command Prompt for VS 2019），进入当前目录下的 `Common7\IDE` 子目录。
+
+    使用其中 `VSIXInstaller.exe` 来运行下载的插件。
+
+    ```bash
+    >>> VISInstaller.exe "xxxx.vsix"
+    ```
