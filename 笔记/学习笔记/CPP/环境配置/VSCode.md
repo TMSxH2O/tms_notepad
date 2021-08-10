@@ -12,6 +12,8 @@ MinGW是将GCC编译器和GNU Binutils移植到Win32平台下的产物。
 
 需要先进行下载并安装（或者找网上的绿色版）。
 
+> https://sourceforge.net/projects/mingw-w64/files/mingw-w64/mingw-w64-release/
+
 ## 插件准备
 
 此处列举将会使用到的VSCode插件。
