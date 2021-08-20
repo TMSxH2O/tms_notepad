@@ -1,0 +1,106 @@
+{
+  "main": {
+    "id": "0bd57bb2ccc69688",
+    "type": "split",
+    "children": [
+      {
+        "id": "ac63400025eacfc9",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "笔记/CPP/CMake/CMake基础使用.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "349046aa86354928",
+    "type": "split",
+    "children": [
+      {
+        "id": "145654657dc7ae87",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6c0f3dc0feccf516",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "a2699bfaacba7595",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "91dc75b981224ead",
+    "type": "split",
+    "children": [
+      {
+        "id": "f33ab959e280b413",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d2c0b4e559131785",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "笔记/CPP/CMake/CMake基础使用.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "21dbfb2c18bcc2dd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "笔记/CPP/CMake/CMake基础使用.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "ac63400025eacfc9",
+  "lastOpenFiles": [
+    "笔记/CPP/CMake/CMake基础使用.md",
+    "笔记/CPP/范型编程.md",
+    "笔记/CPP/CMake/未命名.md",
+    "笔记/学习笔记/Python/Python核心编程.md"
+  ]
+}
