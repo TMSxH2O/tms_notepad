@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "笔记/CPP/CMake/CMake基础使用.md",
+            "file": "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md",
             "mode": "source"
           }
         }
@@ -49,10 +49,26 @@
             }
           }
         ]
+      },
+      {
+        "id": "4b0b8d6437a0fe27",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7f7a0357f8bfc1f1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md"
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 271
   },
   "right": {
     "id": "91dc75b981224ead",
@@ -68,7 +84,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "笔记/CPP/CMake/CMake基础使用.md",
+                "file": "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -85,7 +101,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "笔记/CPP/CMake/CMake基础使用.md"
+                "file": "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md"
               }
             }
           }
@@ -98,6 +114,9 @@
   },
   "active": "ac63400025eacfc9",
   "lastOpenFiles": [
+    "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md",
+    "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/相关知识.md",
+    "笔记/学习记录.md",
     "笔记/CPP/CMake/CMake基础使用.md",
     "笔记/CPP/范型编程.md",
     "笔记/CPP/CMake/未命名.md",
