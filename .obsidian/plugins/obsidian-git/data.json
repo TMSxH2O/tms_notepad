@@ -1,7 +1,7 @@
 {
   "commitMessage": "update by Obidian: {{date}}",
   "commitDateFormat": "YYYY-MM-DD HH:mm:ss",
-  "autoSaveInterval": 10,
+  "autoSaveInterval": 30,
   "autoPullInterval": 60,
   "autoPullOnBoot": true,
   "disablePush": true,

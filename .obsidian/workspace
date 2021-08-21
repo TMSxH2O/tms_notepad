@@ -10,7 +10,7 @@
           "type": "markdown",
           "state": {
             "file": "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md",
-            "mode": "source"
+            "mode": "preview"
           }
         }
       }
@@ -24,6 +24,7 @@
       {
         "id": "145654657dc7ae87",
         "type": "tabs",
+        "dimension": 44.146341463414636,
         "children": [
           {
             "id": "6c0f3dc0feccf516",
@@ -53,6 +54,7 @@
       {
         "id": "4b0b8d6437a0fe27",
         "type": "tabs",
+        "dimension": 55.85365853658537,
         "children": [
           {
             "id": "7f7a0357f8bfc1f1",
