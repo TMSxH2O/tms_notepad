@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md",
+            "file": "笔记/学习记录.md",
             "mode": "source"
           }
         }
@@ -62,7 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md"
+                "file": "笔记/学习记录.md"
               }
             }
           }
@@ -86,13 +86,13 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md",
+                "file": "笔记/学习记录.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": false,
+                "backlinkCollapsed": true,
                 "unlinkedCollapsed": true
               }
             }
@@ -103,7 +103,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md"
+                "file": "笔记/学习记录.md"
               }
             }
           }
@@ -116,12 +116,15 @@
   },
   "active": "ac63400025eacfc9",
   "lastOpenFiles": [
+    "笔记/学习记录.md",
+    "笔记/Computer-Graphics/现代计算机图形学入门.md",
+    "笔记/CPP/CMake/CMake基础使用.md",
+    "笔记/Computer-Graphics/笔记.md",
+    "笔记/Computer-Graphics/shader_toy.md",
+    "现代计算机图形学入门 视频 GAMES101.md",
     "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/知识点.md",
     "笔记/Computer-Graphics/ComputerGraphicsAPI/OpenGL/相关知识.md",
-    "笔记/学习记录.md",
-    "笔记/CPP/CMake/CMake基础使用.md",
     "笔记/CPP/范型编程.md",
-    "笔记/CPP/CMake/未命名.md",
-    "笔记/学习笔记/Python/Python核心编程.md"
+    "笔记/CPP/CMake/未命名.md"
   ]
 }
