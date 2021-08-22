@@ -11,4 +11,9 @@ GLM 中的数据到 GLSL。GLSL 接受的，通常是 `float` 或者 `int` 类�
 
 如，希望传入一个矩阵数据类型，就需要使用 `&mat[0][0]` 或者也可以使用 GLM 的方法 `glm::value_ptr(mat)` 传入指针数据。
 
-## 
+## OpenGL默认参数
+获取 OpenGL 内部默认参数的。
+
+- `glGetString` 获取对应的字符串值
+- `glGetIntegerv` 获取对应的整数值
+- `glGetStringi` 获取对应索引的字符串，如通常 `GL_EXTENSIONS` 存在多个，就需要使用 `glGetStringi(GL_EXTENSIONS, index)`
