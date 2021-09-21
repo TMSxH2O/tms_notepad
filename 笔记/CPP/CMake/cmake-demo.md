@@ -26,7 +26,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)  # 设置exe文件输出路�
 add_definitions(-DGLCORE_PLATFORM_WINDOWS -DGLFW_INCLUDE_NONE -DWIN32 -DRES_PATH="${RES_PATH}")
 
 # 项目includes目录，相对路径使用双引号，绝对路径使用尖括号
-include_directions(
+include_directories(
 	./src
 	./src/base
 	./src/imgui
@@ -40,13 +40,13 @@ include_directions(
 )
 
 # subdirection 中都需要有对应的 CMakeLists.txt 文件
-add_subdirection(src)  # 对应引擎 Engine 路径
-add_subdirection(Examples/learnopengl/Bloom)  # 子模块
+add_subdirectory(src)  # 对应引擎 Engine 路径
+add_subdirectory(Examples/learnopengl/Bloom)  # 子模块
 
 # 复制dll到最后统一的exe目录
 file(GLOB LIB_FILES "*.dll")
-file(COPY ${LIB_FILES} DESTIONATION ${CMAKE_BINARY_DIR}/bin/Debug)
-file(COPY ${LIB_FILES} DESTIONATION ${CMAKE_BINARY_DIR}/bin/Released)
+file(COPY ${LIB_FILES} DESTINATION ${CMAKE_BINARY_DIR}/bin/Debug)
+file(COPY ${LIB_FILES} DESTINATION ${CMAKE_BINARY_DIR}/bin/Released)
 ```
 # 引擎
 ```cmake
@@ -73,7 +73,7 @@ set(TARGET Bloom)
 
 file(GLOB_RECURSE BLOOM_SRCS "*.cpp" "*.h")
 
-add_executable(${TARGET} ${BLOOM_SRCS}})
+add_executable(${TARGET} ${BLOOM_SRCS})
 
 target_link_libraries(${TARGET} PRIVATE Engine)
 ```
