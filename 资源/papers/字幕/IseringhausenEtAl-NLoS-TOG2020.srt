@@ -1,0 +1,144 @@
+0
+00:00:02,750 --> 00:00:09,350
+在这篇论文中 我们介绍了一种新的方法 通过光线的间接反射来重建场地直线以外的物体
+In this paper, we introduce a new approach for reconstructing objects beyond the direct line of site, from indirect reflections of light.
+
+1
+00:00:10,190 --> 00:00:12,710
+这个挑战也被称为环顾四周
+This challenge is also known as looking around the corner.
+
+2
+00:00:13,640 --> 00:00:19,000
+我们专注于Beltan和Co作者提出的设置 一个未知的物体位于一堵墙的前面
+We focus on the setting proposed by Beltan and Co authors, where an unknown object is located in front of a wall.
+
+3
+00:00:19,880 --> 00:00:26,960
+我们假设物体本身在我们的视野中 但我们可以照亮墙上的一点 例如 用超短的激光脉冲
+We assume that the object itself is accluded from our view, but that we can illuminate a point on the wall, for instance, with an ultra short laser pulse.
+
+4
+00:00:27,820 --> 00:00:30,820
+一些光会从激光光斑散射到物体上
+Some of the light will scatter from the laser spot to the object.
+
+5
+00:00:31,530 --> 00:00:37,610
+部分光线会被物体表面的点反射 最终到达墙上的其他点
+Some of that light, in turn will be reflected by points on the objects surface, and eventually reach other points on the wall.
+
+6
+00:00:38,540 --> 00:00:44,020
+在墙壁上 我们使用时间分辨探测器(如街道摄像头或唾液传感器)观察光线
+On the wall, we observe the light using a time resolve detector such as a street camera or spat sensor.
+
+7
+00:00:44,650 --> 00:00:48,370
+其结果是一种时空响应 类似于光的回声
+The result is a space time response that resembles an echo of light.
+
+8
+00:00:50,040 --> 00:00:59,200
+到目前为止 在这样的场景中模拟光传输需要大量的计算 因为这种多边界路径的整体光效率非常低
+So far, simulating light transport through a scene like this used to come with great computational effort, since the overall light efficiency of such multibounds paths is very low.
+
+9
+00:00:59,490 --> 00:01:05,850
+例如 在16门CPU课程中 PBT渲染器的时间解析扩展需要5到10个小时
+A time resolved extension to the PBT renderer, for instance, would take five to ten hours on sixteen CPU course.
+
+10
+00:01:06,380 --> 00:01:11,140
+对于这张16乘16像素的图像 需要收敛256个时间箱
+For this sixteen by sixteen pixel image with 256 temporal bins to converge.
+
+11
+00:01:11,920 --> 00:01:17,200
+本文提出的特殊目的赋值法可以赋值三个边界 轻运输效率更高
+The special purpose render, a proposed in our paper, can render three bounds. Light transport much more efficiently.
+
+12
+00:01:18,180 --> 00:01:23,380
+例如 之前展示的这个场景的视频渲染所花的时间比你观看所花的时间要少
+This video of the scene shown before, for instance took less time to render than it took you to watch.
+
+13
+00:01:24,570 --> 00:01:28,090
+在本文中 我们研究了在我们的渲染器中由近似引入的误差
+In the paper, we investigate the error introduced by the approximations in our renderer.
+
+14
+00:01:28,830 --> 00:01:33,470
+我们渲染一个非几何物体 并将结果与参考解的光线轨迹进行比较
+We render an object with a non geometry, and compare the outcome to a ray trace to reference solution.
+
+15
+00:01:34,460 --> 00:01:41,100
+包含了一种新颖的滤波方案和阴影测试 使得渲染器的误差很低 通常低于1%
+The inclusion of a novel filtering scheme and shadow tests allows the renderer to achieve a low error, typically well below 1%.
+
+16
+00:01:42,050 --> 00:01:45,690
+这使得我们可以用一种新的方式来规划这个问题
+This now allows us to formulate the problem of looking around the corner in a new way.
+
+17
+00:01:46,450 --> 00:01:51,930
+假设我们有一个未知的场景和设备 记录它在激光脉冲照射下的时空响应
+Let's say we have an unknown scene and devices that record its space time response when illuminated by a laser pulse.
+
+18
+00:01:52,610 --> 00:01:57,810
+当我们试图找回未知物体时 我们首先进行一些猜测 当然 这是完全错误的
+As we try to recover the unknown object, we start with some first guess that is, of course, completely off.
+
+19
+00:01:58,670 --> 00:02:03,950
+现在 我们使用渲染器来预测时空响应 如果这是实际场景 我们应该期待看到
+We now use our renderer to predict the space time response that we should expect to see if this was the actual scene.
+
+20
+00:02:05,380 --> 00:02:12,740
+多亏了一种新颖的渲染器 这只需要几毫秒 如果我们的场景假设是正确的 预测应该与观察相符
+Thanks to a novel renderer, this only takes a few milliseconds. If our scene hypothesis were correct, the prediction should match the observation.
+
+21
+00:02:13,630 --> 00:02:19,950
+因此 我们计算残差并完善假设 直到误差最小化 这就是这个改进的样子
+So we computer residual and refine the hypothesis until the error is minimized. This is what this refinement looks like.
+
+22
+00:02:26,630 --> 00:02:28,990
+不幸的是 实际的实验数据仍然缺乏
+Unfortunately, actual experimental data is still scarce.
+
+23
+00:02:29,830 --> 00:02:36,390
+我们使用我们的方法来重建一个选择的合成场景 并表明它产生了更完整和准确的重建
+We use our method to reconstruct a selection of synthetic scenes and show that it produces much more complete and accurate reconstructions.
+
+24
+00:02:37,230 --> 00:02:39,910
+而不是最先进的方法 它吸收了背向投影
+Than the state of the art method. It absorbed back projection.
+
+25
+00:02:40,910 --> 00:02:49,270
+这是由于反向投影不能考虑像排除或表面定向这样的效果 这是我们的方法自然处理的
+This is due to the fact that back projection cannot take into account effects like exclusion or surface orientation that are naturally handled by our method.
+
+26
+00:02:51,200 --> 00:02:56,080
+我们还重建了一个实验数据集 该数据集是使用单个光探测器测量的
+We also reconstructed an experimental dataset that was measured using a single photo detector.
+
+27
+00:02:57,020 --> 00:03:04,820
+我们设想 在未来 类似的方法也可以用于生成大量的培训数据或在实地校准测量设置
+We imagine that in the future, similar approaches could also be used to generate large amounts of training data or to calibrate measurement setups in the field.
+
+28
+00:03:05,800 --> 00:03:06,120
+谢谢你
+Thank you.
