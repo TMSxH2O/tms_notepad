@@ -26,6 +26,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)  # 设置exe文件输出路�
 add_definitions(-DGLCORE_PLATFORM_WINDOWS -DGLFW_INCLUDE_NONE -DWIN32 -DRES_PATH="${RES_PATH}")
 
 # 项目includes目录，相对路径使用双引号，绝对路径使用尖括号
+# 某些为了方便使用，可以同时提供相对路径和绝对路径
 include_directories(
 	./src
 	./src/base
@@ -37,6 +38,13 @@ include_directories(
 	${PROJECTION_SOURCE_DIR}/Dependencies/spdlog/include
 	${PROJECTION_SOURCE_DIR}/Dependencies/Assimp
 	${PROJECTION_SOURCE_DIR}/src/imgui
+)
+
+# 指定之后需要使用的lib文件所在的路径（不能放在引擎的配置文件中，需要提到主配置文件）
+link_direction(
+	${CMAKE_SOURCE_DIR}/Dependencies/spdlog/lib
+	${CMAKE_SOURCE_DIR}/Dependencies/Assimp/lib
+	${CMAKE_SOURCE_DIR}/Dependencies/GLFW/lib
 )
 
 # subdirection 中都需要有对应的 CMakeLists.txt 文件
@@ -59,10 +67,11 @@ set(ENGINE_SOURCES ${SOURCE_SRCS} ${HEARER_SRCS})
 
 add_library(${TARGET} STATIC ${ENGINE_SOURCES})
 
+# 指定连接的静态库文件，不需要指定后缀
 set(ADDITIONAL_LIBRARY_DEPENDENCIES
-	${CMAKE_SOURCE_DIR}/Dependencies/spdlog/lib/spdlogd.lib
-	${CMAKE_SOURCE_DIR}/Dependencies/Assimp/lib/assimp-vc140-mt.lib
-	${CMAKE_SOURCE_DIR}/Dependencies/GLFW/lib/glfw3.lib
+	spdlogd
+	assimp-vc140-mt
+	glfw3
 	opengl32
 )
 target_link_libraries(${TARGET} PUBLIC ${ADDITIONAL_LIBRARY_DEPENDENCIES})
