@@ -16,15 +16,17 @@ $$
 - $G(x, x')$<br>the geometric relactionship between $x$ and $x'$
 - $V(x, x')$<br>a visibility test, returns 1 if $x$ can see $x'$, 0 otherwise
 
-### 伴随勒让德多项式
+### 伴随勒格朗日多项式
 伴随勒让德多项式，Associated Legendre Polynomials，其满足三条规则
 
 1. $(l-m)P^m_l = x(2l-1)P^m_{l-1}-(l+m-1)P^m_{l-2}$
 2. $P^m_m=(-1)^m(2m-1)!!(1-x^2)^{m/2}$
 3. $P^m_{m+1}=x(2m+1)P^m_m$
 
-> 其中 $x!!$ 是双阶层函数，需要将奇数和偶数分别进行阶乘：
+> 其中 $x!!$ 是双阶层函数，需要将奇数和偶数作为两种不同情况处理：
 > $$\begin{align*}(2n-1)!!&=1\times 3 \times 5 \times \cdots \times (2n-1)\\(2n)!!&=2\times 4 \times 6 \times \cdots \times (2n)\end{align*}$$
+
+paper中有提到，使用第一条规则得到的值更加准确，因此，此处尽可能使用了第一条规则来计算最终的值。（第三条规则虽然可以提高 `l`，但是为了保证最后结果更加精准，只使用了一次）
 
 ```cpp
 double P(int l, int m, double x)
@@ -32,6 +34,7 @@ double P(int l, int m, double x)
 	// evaluate an Associated Legendre Polynomial P(l,m,x) at x
 	double pmm = 1.0;
 	if (m>0) {
+		// 首先使用的是第二条规则，来计算得到 Pmm
 		double somx2 = sqrt((1.0 - x)*(1.0 + x));
 		double fact = 1.0;
 		for (int i = 1; i <= m; i++) {
@@ -40,8 +43,10 @@ double P(int l, int m, double x)
 		}
 	}
 	if (l == m) return pmm;
+	// 为了保证结果更加精准，只使用一次第三条规则
 	double pmmp1 = x * (2.0*m + 1.0) * pmm;
 	if (l == m + 1) return pmmp1;
+	// 使用第一条规则
 	double pll = 0.0;
 	for (int ll = m + 2; ll <= l; ++ll) {
 		pll = ((2.0*ll - 1.0)*x*pmmp1 - (ll + m - 1.0)*pmm) / (ll - m);
@@ -104,6 +109,8 @@ void SH_project_polar_function(SH_polar_fn fn, const SHSample samples[], double 
 	}
 }
 ```
+
+对有颜色的图像处理，通常的方式是分别处理图像的各个通道，生成对应颜色的SH值，之后分别就进行处理（带入上方的 `SH_polar_fn`）。
 
 ### 漫反射非阴影传输函数
 $$
