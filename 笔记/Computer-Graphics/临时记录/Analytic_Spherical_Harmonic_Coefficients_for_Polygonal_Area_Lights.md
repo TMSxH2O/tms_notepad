@@ -61,7 +61,7 @@ double P(int l, int m, double x)
 Spherical Harmonic，SH。
 SH函数通常使用 $y$ 来表示：
 $$
-y^m_l(\theta, \omega) = \begin{cases}\sqrt{2}K^m_lcos(m\varphi)P^m_l(cos\theta), & m>0\\ \sqrt{2}K^m_lsin(-m\varphi)P^{-m}_l(cos\theta),& m<0\\K^0_lP^0_l(cos\theta),&m=0\end{cases}
+y^m_l(\theta, \omega) = \begin{cases}\sqrt{2}K^m_lcos(m\varphi)P^m_l(cos\theta), & m>0\\ \sqrt{2}K^{|m|}_lsin(|m|\varphi)P^{|m|}_l(cos\theta),& m<0\\K^0_lP^0_l(cos\theta),&m=0\end{cases}
 $$
 其中$K^m_l=\sqrt{\frac{(2l+1)}{4\pi}\frac{(l-|m|)!}{(1+|m|)!}}$
 > 因为对球谐光照而言，其中的 $m$ 将涉及到负数的情况，使用 $P^m_l$ 时，需要将 $m$ 转换为正数。
@@ -121,3 +121,26 @@ $$
 - $f_r(x,\omega_o,\omega_i)$<br>The BRDF at point $x$
 - $L_i(x,\omega_i)$<br>incoming light at point $x$ along vector $\omega_i$
 - $H(x,\omega_i)$<br>the $gemetric$ or $cosine term$, as described earlier.
+
+# Paper
+对论文中的部分内容记录
+
+## Zonal Harmonics
+
+在论文中，使用到了 `Zonal Shperical Harmonics` 来计算，可以对 `Legendre Polynomials` 进行变形：
+$$Z^m_l(\omega,\varphi)=P^m_l(cos\omega)$$
+> 其中，m的相等，可以简写
+
+之后，使用到了另一个论文中的结论，
+$$Y^l_m(\omega, \varphi)=\sum_{d}\alpha^m_{l,d}Y^0_l(\omega, \varphi)$$
+其中的 $\alpha^m_{l,d}$ 表示的是一组权重信息，在 `Spherical Harmonics` 的各阶与其 $m=0$ 有一定的对应关系。（似乎对应的关系在对应的文档中已给出）
+
+因此，之前的 $Y^m_l(\omega, \varphi) = K^{|m|}_lP^{m}_l(cos\omega)\int(|m|\varphi)$ 可以简化，只求出其中 $m=0$ 的值，因此式子可以进行简化：
+$$Y^0_l(cos\omega)=\sqrt{\frac{2l+1}{4\pi}}P^0_l(cos\omega)$$
+原式中，$\int(|m|\varphi)$ 在 $m=0$ 时，得到的值为1。同时，带入了之前得到的 `Zonal Spherical Harmoncis` 和 `Legendre Polynomials` 的关系，最后的值只与 $\omega$ 有关，因此可以减少参数 $\varphi$。
+
+之后，整理在此处的 `Legendre Polynomials` 的几个关系式：
+
+$$
+\begin{align*}\frac{z^2-1}{l}P_l'(z)&=zP_l(z)-P_{l-1}\\lP_l(z)&=(2l-1)zP_{l-1}(z)-(l-1)P_{l-2}(z)\\(2l+1)P_l(z)&=P'_{l+1}-P'_{l-1}(z)\end{align*}
+$$
