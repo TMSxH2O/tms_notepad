@@ -53,13 +53,45 @@ Minecraft 基岩版，是微软收购游戏后，使用 C++ 实现的全新版�
 > 网上都说有一套js脚本，但是我查到现在官方文档上都写的是 Python
 > https://docs.microsoft.com/zh-cn/minecraft/creator/documents/introductiontoaddentity
 
-脚本采用的注册系统，处理回调的方式。伪代码大概就是下面这种感觉：
-**TODO**
+脚本主要采用的是注册系统，处理回调的方式。
+大概就是下面这种感觉：
+
+```python
+# 这里绑定Mod的名字，和这个包的 manifest.json 中对应
+# 使得这里变成了整个脚本的入口
+@Mod.Binding(name="HelloWorldMod", version="0.0.1")
+class HelloWorldMod(object):
+	...
+	# 在服务器启动的时候会调用这个接口
+	@Mod.InitServer()
+	def HelloWorldServerInit(self):
+		# 注册系统类
+		serverApi.RegisterSystem("HelloWorldMod", "HelloWorldServerSystem", "helloWorldMod.helloWorldServerSystem.HelloWorldServerSystem")
+
+# ========== helloWorldServerSystem.py ==============
+class HelloWorldServerSystem(ServerSystem):
+
+	# 设置事件监听
+	def __init__(self, namespace, system_name):
+		super(HelloWorldServerSystem, self).__init__(namespace, system_name)
+		self.ListenForEvent(serverApi.GetEngineNamespace(), serverApi.GetEngineSystemName(), "ServerChatEvent", self, self.OnServerChat)
+
+	# 注册的服务器用户输入回调
+	def OnServerChat(self, args):
+		...  # 具体逻辑
+```
 
 ### 1.1.2. 更新完善
 
 官方为了让暴露出的组件更加易于开发者拓展，它们将游戏大量的基础的逻辑配置都抽离出来，变为了一个包（基本可以将原生的游戏内容也理解为是一个模组）。用户的模组将会按照顺序加载，并最终覆盖原生的游戏内容，实现修改扩展原始游戏的效果。
 
+> 因为我没有买基岩版的 MC 所以这里贴的是使用了相同策略的游戏 Factorio（异星工场）
+> ![Factorio-Mods](./imgs/Factorio-Mods.png)
+> 游戏的基础内容会也可以被视作是一个模组
+
+这种方式可以在一定程度上，保证接口暴露出的逻辑易于拓展，甚至游戏迭代本身，也是有利于模组功能拓展的。
+
+### 1.1.3. 总结
 
 
 # 参考资料
