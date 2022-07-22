@@ -1,14 +1,14 @@
-探索mod在游戏中的管理方法
+探索mod在游戏中的管理方法。主要游戏上如何升级维护mod相关接口，以及用户需要如何使用，不会太过深入某种方法的具体实现。
 
 # 1. 以Mod作为卖点的游戏
 ## 1.1. Minecraft
-> Minecraft最初使用 Java 语言进行编写，使得其支持代码具备 Java 的特性，比如反射。这里大致观察的是 MinecraftForge 库，内部使用了大量的反射，对核心逻辑进行拓展，并对其他开发者暴露接口，实现自定的逻辑。当然，如果有必要，也可以直接通过 Java 的类加载器 `ClassLoader` 来反射不同的类，修改类方法。
+> Minecraft最初使用 Java 语言进行编写，使得其支持代码具备 Java 的特性，比如反射。这里大致观察的是 MinecraftForge 库，内部使用了大量的反射，对核心逻辑进行拓展，并对其他开发者暴露接口，实现自定的逻辑。当然，如果有必要，也可以直接通过 Java 的类加载器 `ClassLoader` 来获取类对象，反射修改类方法。
 > 
 > 但是这种方式也会有明显的局限性，甚至可以说官方本身（早期版本）在这其中并没有起到积极作用。
 
 Minecraft 基岩版，是微软收购游戏后，使用 C++ 实现的全新版本，基本上可以理解为两个游戏，但是官方对于游戏的模组开发相当看中，甚至最初的设计也是为了能够让用户更好得实现自己的模组。
 
-最终，官方选择的是一种基于数据的框架（类ECS，具体游戏内部的框架也没说），游戏的逻辑对外部隐藏，而用户通过修改外部的游戏数据文件来实现不同的效果。在他们的框架中，同样有 ”组件“ 这样的概念，会有类似模型组件来决定具体渲染的模型样式，材质组件来决定物体渲染的效果等等。模组开发者通过查阅官方开发文档，编写 json 文件，就可以实现各式各样的效果。
+最终，官方选择的是一种基于数据的框架（类ECS，具体游戏内部的框架也没说），游戏的逻辑对外隐藏，而用户通过修改外部的游戏数据文件来实现不同的效果。在他们的框架中，同样有 ”组件“ 这样的概念，会有类似模型组件来决定具体渲染的模型样式，材质组件来决定物体渲染的效果等等。模组开发者通过查阅官方开发文档，编写 json 文件，就可以实现各式各样的效果。
 
 ### 1.1.1. 官方示例 - 替换泥土材质
 一个简单的示例 https://docs.microsoft.com/en-us/minecraft/creator/documents/resourcepack：
@@ -103,6 +103,13 @@ Minecraft 采用的是一种配置文件以及回调脚本共同作用的模组�
 - RimWorld 环世界<br>![RimWorld](./imgs/RimWorld.png)
 
 ## 1.2. 上古卷轴5-天际
+> 官方管理的 mod 站：https://bethesda.net/zh-CN/mods/skyrim
+
+上古卷轴5因为活跃的mod社区，一直坚挺至今。
+
+但是相对而言，它管理模组的方式更加原始
+
+> 维基上查到发售时间是11年，最开始就支持模组，加上这是一个3A游戏，这方面的设计可能会再早一点
 
 # 参考资料
 - Minecraft：每位玩家都可以是开发者！全新工具、官方文档，助力每一位玩家的创造之旅！【基岩说#MC Live特别篇】<br>https://www.bilibili.com/video/BV1jQ4y1z7FB
@@ -110,3 +117,4 @@ Minecraft 采用的是一种配置文件以及回调脚本共同作用的模组�
 - MinecraftForge Github<br>https://github1s.com/MinecraftForge/MinecraftForge/tree/1.12.x
 - Minecraft 1.3.2-1.15.2 原版 / FML CoreMod 开发教程 Github<br>https://github.com/xfl03/CoreModTutor
 - 网易示例（国际版和中国版细节上会有区别，但是教程比较详细，微软惜字如金）<br>https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/13-%E6%A8%A1%E7%BB%84SDK%E7%BC%96%E7%A8%8B/60-Demo%E7%A4%BA%E4%BE%8B.html?catalog=1
+- Creation Kit 官方文档<br>https://www.creationkit.com/index.php?title=Main_Page
