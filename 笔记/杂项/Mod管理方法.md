@@ -99,15 +99,16 @@ Minecraft 采用的是一种配置文件以及回调脚本共同作用的模组�
 ### 1.1.4. 相关游戏
 
 目前已知用到这种处理方法的游戏：
-- Factorio 异星工厂<br>![Factorio](./imgs/Factorio.png)
 - RimWorld 环世界<br>![RimWorld](./imgs/RimWorld.png)
-
+- Factorio 异星工厂<br>![Factorio](./imgs/Factorio.png)
 ## 1.2. 上古卷轴5-天际
 > 官方管理的 mod 站：https://bethesda.net/zh-CN/mods/skyrim
 
-上古卷轴5因为活跃的mod社区，一直坚挺至今。
+上古卷轴5因为活跃的mod社区，一直坚挺至今（说是这么说，但是试着看了一下9DM这种论坛，上面最新的贴也是去年发的，回复还比较新，最近的也有）。
 
-但是相对而言，它管理模组的方式其实与魔兽争霸3当时的感觉类似
+但是相对而言，它管理模组的方式其实与魔兽争霸3当时的感觉类似，有官方提供工具，然后开发者通过工具以及官方的文档，来修改资源，或者通过脚本扩展逻辑。
+
+这里主要采取的一种策略，是由官方专门制作了游戏扩展资源的制作工具，将资源打包为游戏加载的包（以这里为例，就是一个个esm文件）
 
 # 参考资料
 - Minecraft：每位玩家都可以是开发者！全新工具、官方文档，助力每一位玩家的创造之旅！【基岩说#MC Live特别篇】<br>https://www.bilibili.com/video/BV1jQ4y1z7FB
@@ -116,3 +117,5 @@ Minecraft 采用的是一种配置文件以及回调脚本共同作用的模组�
 - Minecraft 1.3.2-1.15.2 原版 / FML CoreMod 开发教程 Github<br>https://github.com/xfl03/CoreModTutor
 - 网易示例（国际版和中国版细节上会有区别，但是教程比较详细，微软惜字如金）<br>https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/13-%E6%A8%A1%E7%BB%84SDK%E7%BC%96%E7%A8%8B/60-Demo%E7%A4%BA%E4%BE%8B.html?catalog=1
 - Creation Kit 官方文档<br>https://www.creationkit.com/index.php?title=Main_Page
+- 9DM论坛<br>http://www.9damaogame.net/
+- 【监狱建筑师】[人人都能做MOD]-总纲篇<br>https://steamcommunity.com/sharedfiles/filedetails/?id=731109439
