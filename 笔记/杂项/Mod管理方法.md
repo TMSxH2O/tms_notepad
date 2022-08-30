@@ -90,24 +90,24 @@ class HelloWorldServerSystem(ServerSystem):
 
 官方为了让暴露出的组件更加易于开发者拓展，它们将游戏大量的基础的逻辑配置都抽离出来，变为了一个包（基本可以将原生的游戏内容也理解为是一个模组）。用户的模组将会按照顺序加载，并最终覆盖原生的游戏内容，实现修改扩展原始游戏的效果。
 
-> 因为我没有买基岩版的 MC 所以这里贴的是使用了相同策略的游戏 Factorio（异星工场）
-> ![Factorio-Mods](./imgs/Factorio-Mods.png)
-> 游戏的基础内容会也可以被视作是一个模组
+> ![Factorio-Mods](./imgs/Minecraft-Bedrock_Edition-Mods.png)
+> 这里的一个本地包就是添加的Mod，全局包就是游戏基础资源，加载到游戏中时，相同的内容将被Mod资源替换
 
 这种方式可以在一定程度上，保证接口暴露出的逻辑易于拓展，甚至游戏迭代本身，也是有利于模组功能拓展的。
 
-### 1.1.3. 总结
+> 更新到现在，微软依然没有提供相关模组制作工具的想法，然而网易代理的版本很早就出推出了模组工具 MC Studio（地图编辑
+### <s>1.1.3. 总结<s>
 Minecraft 采用的是一种配置文件以及回调脚本共同作用的模组实现机制，可以将原生的游戏内容也抽成一个独立的模组，这可以让模组开发者在游戏支持的框架内，尽可能的扩展游戏的玩法。
 
 > <s>代价就是，相比起 Java 版，具体的对象、逻辑都对模组开发者隐藏了（虽然 Java 版最开始也并不想对用户开放），导致一些更加特殊的效果难以实现，同时也会难以进行优化。当然，一定程度上，好的文档可以缓解这方面的问题，但是毕竟是为了保持黑盒做出的必要牺牲，也无法完全避免。</s>
 
 > <s>隐性</s>代价是学习成本的提升，各种的设置都是基于文件（面向数据），直接修改文件的方式对大部分人来说并不算友好
 
-### 1.1.4. 相关游戏
+### <s>1.1.4. 相关游戏</s>
 
-目前已知用到这种方法的游戏：
-- RimWorld 环世界<br>![RimWorld](./imgs/RimWorld.png)
-- Factorio 异星工厂<br>![Factorio](./imgs/Factorio.png)
+> 目前已知用到这种方法的游戏：
+> - RimWorld 环世界<br>![RimWorld](./imgs/RimWorld.png)
+> - Factorio 异星工厂<br>![Factorio](./imgs/Factorio.png)
 
 ## 1.2. 上古卷轴5-天际
 > 官方管理的 mod 站：https://bethesda.net/zh-CN/mods/skyrim
@@ -133,3 +133,4 @@ Minecraft 采用的是一种配置文件以及回调脚本共同作用的模组�
 - 9DM论坛<br>http://www.9damaogame.net/
 - 【监狱建筑师】[人人都能做MOD]-总纲篇<br>https://steamcommunity.com/sharedfiles/filedetails/?id=731109439
 - N网 RE引擎模组管理 FluffyMod管理器官网<br>https://www.fluffyquack.com/
+- 小团队的游戏作品如何添加MOD支持？<br>https://zhuanlan.zhihu.com/p/451445398
