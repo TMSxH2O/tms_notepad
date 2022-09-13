@@ -17,7 +17,7 @@
 
 ## 1.2. 补充一点前面的话
 
-由于模组本身其实是更加偏向Gameplay的模块，想不到有什么东西会需要引擎层面来支持，因此这篇文档更多的也不会去关注其中的实现方式<span style="background-color:black;color:black">（主要是现在还没有一套完美方案，可以完美适配大部分游戏，在某个方面表现比较好就会在其他方便付出代价）</span>，更多的是从更上层的角度出发，关注的是设计者为模组开发者准备的开发方案。
+由于模组本身其实是更加偏向Gameplay的模块，想不到有什么东西会需要引擎层面来支持，因此这篇文档更多的也不会去关注其中的实现方式<span style="background-color:black;color:black">（主要是现在还没有一套完美方案，适合各种类型的游戏，在某个方面表现比较好就会在其他方便付出代价）</span>，将会从更上层的角度出发，关注的是游戏设计者如何设计规则让模组开发者进行开发。
 
 因此，这篇文档可能会提到部分游戏的<s>不完整</s>模组开发流程（用于说明设计者预期内的模组开发流程），但无法作为一篇真正的模组开发教程。
 
@@ -31,11 +31,12 @@
 
 ### 2.1.1. 官方工具
 > 官方文档 https://www.creationkit.com/index.php?title=Main_Page
+> 
 > 官方教程视频 https://www.youtube.com/watch?v=gDKivlGmia4
 
 ![Skyrim-CreateKit-steam_library](./imgs/Skyrim-CreateKit-steam_library.png)
 
-如果购买了Steam上的上古卷轴5游戏，会附赠官方的开发工具（也可以通过B社官方平台下载）
+如果购买了Steam上的上古卷轴5游戏，会附赠官方的开发工具（听说可以通过B社官方平台下载，然而实际找了没找到）
 
 ![Skyrim-CreateKit-MainPage](./imgs/Skyrim-CreateKit-MainPage.png)
 
@@ -207,11 +208,9 @@ class HelloWorldServerSystem(ServerSystem):
 - `publishedfileid` 提交的创意工坊内容ID（一般留空让Steam去分配）
 
 # 参考资料
-- Minecraft：每位玩家都可以是开发者！全新工具、官方文档，助力每一位玩家的创造之旅！【基岩说#MC Live特别篇】<br>https://www.bilibili.com/video/BV1jQ4y1z7FB
-- Minecraft基岩版开发Wiki<br>https://wiki.bedev.cn/page/Minecraft%E5%9F%BA%E5%B2%A9%E7%89%88%E5%BC%80%E5%8F%91Wiki
 - MinecraftForge Github（Java版）<br>https://github1s.com/MinecraftForge/MinecraftForge/tree/1.12.x
 - Minecraft（Java版） 1.3.2-1.15.2 原版 / FML CoreMod 开发教程 Github<br>https://github.com/xfl03/CoreModTutor
-- Minecraft 网易示例（国际版和中国版细节上会有区别，但是教程比较详细，微软惜字如金）<br>https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/13-%E6%A8%A1%E7%BB%84SDK%E7%BC%96%E7%A8%8B/60-Demo%E7%A4%BA%E4%BE%8B.html?catalog=1
+- Minecraft 网易示例（国际版和中国版细节上会有区别，但是中国版教程比较基础，容易入门）<br>https://mc.163.com/dev/mcmanual/mc-dev/mcguide/20-%E7%8E%A9%E6%B3%95%E5%BC%80%E5%8F%91/13-%E6%A8%A1%E7%BB%84SDK%E7%BC%96%E7%A8%8B/60-Demo%E7%A4%BA%E4%BE%8B.html?catalog=1
 - Creation Kit 官方文档<br>https://www.creationkit.com/index.php?title=Main_Page
 - 9DM论坛<br>http://www.9damaogame.net/
 - Creation Kit 基礎使用導覽（需要科学上网）<br>https://forum.gamer.com.tw/C.php?bsn=2526&snA=44136
