@@ -207,6 +207,29 @@ class HelloWorldServerSystem(ServerSystem):
 - `previewfile` 预览图文件
 - `publishedfileid` 提交的创意工坊内容ID（一般留空让Steam去分配）
 
+## 3.2. 模组发展史
+
+> 参考 https://www.nvidia.com/en-us/geforce/news/history-of-pc-game-mods/
+
+- <s>淘金者 Lode Runner（FC） 1983年；坦克大战 Battle City（FC）1985年<br>早些年的游戏，由于卡带存储限制，设计关卡有限的情况下，通过内置地图编辑器的方式，变相延长了游戏寿命</s>
+- Castle Wolfenstein 1981年
+	> 一款古早的动作冒险游戏，玩家将扮演一名盟军战俘，从关押的沃尔芬斯坦城堡中逃脱，并且粉碎纳粹的秘密战争计划。
+	
+	出现了一款非常有人气的模组——“Castle Wolfenstein”。本身是一个将所有的纳粹士兵、怪物包括武器替换为了蓝精灵（风格）<br>
+	<img src="./imgs/History_of_pc_game_mods-CastleWolfenstein.png" width="350px"/><br><img src="./imgs/History_of_pc_game_mods-CastleWolfenstein-CastleSmurfenstein.png" width="350px"/>
+- 毁灭战士 DOOM 1993年
+
+	> 被认为是世界上最早的FPS游戏<span style="background-color:black;color:black">之一</span>，玩家将在游戏中扮演以为顽强的人类士兵使用各种武器与火星传送门中出现的恶魔大军战斗。<br><span style="background-color:black;color:black">这里说之一，是因为1982年还有更早的FPS游戏，德军总部3D，所以只能算最早一批</span>
+
+	这款游戏的先锋性地位被广泛认同，它使用了包围游戏的3D环境绘图、提供了多人游戏支持，并且加入了让玩家自由创建拓展游戏内容的WAD（Where's All the Data）架构，都是游戏史上极具革命性的创新，也启发了后世的第一人称设计游戏。<br><img src="./imgs/History_of_pc_game_mods-Doom-Pirate_Doom.png" width="350px"/>
+- 半条命/半衰期 Half-life 1998年
+
+	> 在这个时期来说非常具有开创性的游戏，自该游戏之后，游戏行业也开始逐渐重视起了FPS的游戏剧情刻画。游戏的整体过程也伴随着有趣的解密等要素（这些要素也一直影响到了后续的游戏制作）
+
+	由于游戏对模组的支持非常好，后续的《反恐精英》、《军团要塞》、《Garry's Mod》，都是脱胎自本游戏的模组。
+- 
+- Minecraft Bedrock（2016）
+
 # 参考资料
 - MinecraftForge Github（Java版）<br>https://github1s.com/MinecraftForge/MinecraftForge/tree/1.12.x
 - Minecraft（Java版） 1.3.2-1.15.2 原版 / FML CoreMod 开发教程 Github<br>https://github.com/xfl03/CoreModTutor
