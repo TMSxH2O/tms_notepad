@@ -226,9 +226,12 @@ class HelloWorldServerSystem(ServerSystem):
 
 	> 在这个时期来说非常具有开创性的游戏，自该游戏之后，游戏行业也开始逐渐重视起了FPS的游戏剧情刻画。游戏的整体过程也伴随着有趣的解密等要素（这些要素也一直影响到了后续的游戏制作）
 
-	由于游戏对模组的支持非常好，后续的《反恐精英》、《军团要塞》、《Garry's Mod》，都是脱胎自本游戏的模组。
-- 
-- Minecraft Bedrock（2016）
+	脱胎自该游戏的游戏有《反恐精英》、《军团要塞》、《Garry's Mod》，这都得益于游戏的开发商Valve Software，他们模糊了玩家和开发商之间的界限，工作室也会定期从社区中雇佣<span style="background-color:black;color:black">收编</span>模组开发者以及关卡设计师加入。
+- 魔兽争霸3 2002年<br>暴雪同时期又一集大成之作，作为RTS游戏，与之前的《星际争霸》(1998)、<span style="background-color:black;color:black">《红警》</span>等一样，也提供了地图编辑器，但在此基础上，强化了联网对战，可以直接下载对方的地图。这也就有利于自定义地图在玩家群体中的传播，并且随着时间，自定义地图的重要性也越来越高，发展到现在War3依然可以靠着大量的RPG地图保持活跃的玩家群体。
+- 武装突袭2 2009年<br>一款节奏比较慢，相对强调真实性的动作设计游戏，有线性剧情的战役模式，也有硬核强化版战地。<br>这款游戏也出现了一些比较出名的末世生存模组，也就是DayZ的前前身。<br><img src="./imgs/History_of_pc_game_mods-Arma2-DayZ.png" width="450px"/><br>之后开始套娃，由于这里的DayZ Mod在当时小有名气（指武装突袭的圈子），另一个模组开发者又在这个模组的基础上，继续开发了另一个模组。一般被认为是后续大逃杀游戏的雏形。（在这个模组中，确定了后续大逃杀的玩法，缩圈和轰炸）<br>后续的跳伞玩法开始于作者在武装突袭3上继续开发的同名模组<br><img src="./imgs/History_of_pc_game_mods-Arma3-BattleRoyale.png" width="450px"/>
+- Minecraft Java 2011年<br>这里取的是Forge的最早一版GitHub提交时间，而不是游戏发布时间（最早可以追溯到09年），之前也有另外的方式添加MC模组，但是真正开始让模组的出现进入井喷期还是在Forge之后。
+- <s>上古卷轴5：天际 2011年</s>
+- <s>Minecraft Bedrock 2016年</s>
 
 # 参考资料
 - MinecraftForge Github（Java版）<br>https://github1s.com/MinecraftForge/MinecraftForge/tree/1.12.x
@@ -237,7 +240,6 @@ class HelloWorldServerSystem(ServerSystem):
 - Creation Kit 官方文档<br>https://www.creationkit.com/index.php?title=Main_Page
 - 9DM论坛<br>http://www.9damaogame.net/
 - Creation Kit 基礎使用導覽（需要科学上网）<br>https://forum.gamer.com.tw/C.php?bsn=2526&snA=44136
-- 【监狱建筑师】[人人都能做MOD]-总纲篇<br>https://steamcommunity.com/sharedfiles/filedetails/?id=731109439
 - N网 RE引擎模组管理 FluffyMod管理器官网<br>https://www.fluffyquack.com/
 - 小团队的游戏作品如何添加MOD支持？<br>https://zhuanlan.zhihu.com/p/451445398
 - 【教程】从零开始手把手教你制作一把武器外观MOD（曙光）<br>https://www.caimogu.cc/post/110808.html
