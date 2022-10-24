@@ -1,0 +1,2 @@
+- 系统基于Arch Linux开发
+- 默认会将 `/home` 以外的路径限制为只读，就连 root 用户也无法读取，通过 `steamos-readonly disable/enable` 开启或关闭该限制
