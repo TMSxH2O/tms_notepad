@@ -27,5 +27,5 @@
 
 ## 总结
 
-- 将大多数inlining限制在<span style="color:red">**小型、被频繁使用的函数**</span>上。这样可以使得之后的调试过程和二进制升级（binary upgradability）更加容易，也可以使潜在的代码膨胀问题最小化，使程序的速度提升机会最大化。
+- 将大多数inlining限制在<span style="color:red;font-weight:bold">小型、被频繁使用的函数</span>上。这样可以使得之后的调试过程和二进制升级（binary upgradability）更加容易，也可以使潜在的代码膨胀问题最小化，使程序的速度提升机会最大化。
 - 不要只因为function templates出现在头文件，就将它们声明为inline
