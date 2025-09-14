@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"d449221cffb63e06","x":-300,"y":-259,"width":160,"height":60,"type":"text","text":"UObject"},
+		{"id":"a3b0f9918933a219","x":-380,"y":-120,"width":160,"height":60,"type":"text","text":"UActor"},
+		{"id":"12dba851f1aff112","type":"text","text":"UActorComponent\n\n子类包含了最重要的 USceneComponent 类，可以包含了 Transform 信息，并且支持嵌套（记录 AttachChildren，挂更多子类）","x":-320,"y":60,"width":360,"height":160}
+	],
+	"edges":[
+		{"id":"e660685c78fd87ba","fromNode":"a3b0f9918933a219","fromSide":"top","toNode":"d449221cffb63e06","toSide":"bottom"},
+		{"id":"5b39fa7cec52f33e","fromNode":"12dba851f1aff112","fromSide":"top","toNode":"d449221cffb63e06","toSide":"bottom"},
+		{"id":"1f65008f4fe188bc","fromNode":"12dba851f1aff112","fromSide":"top","toNode":"a3b0f9918933a219","toSide":"bottom","label":"聚合"},
+		{"id":"9b9e4c1679efa45b","fromNode":"12dba851f1aff112","fromSide":"top","toNode":"a3b0f9918933a219","toSide":"bottom"}
+	]
+}

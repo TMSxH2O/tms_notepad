@@ -100,7 +100,7 @@ $$f_{cook-torrance}=\cfrac{DFG}{4(\omega_o\cdot n)(\omega_i\cdot n)}$$
 
 1. D，Normal Distribution Function，NDF<br>法线分布函数，估算在受到表面粗糙度的影响下，取向方向和中间向量一致的微平面数量。
 2. F，Fresnel equation，菲涅尔方程<br>描述的是在不同的表面角下表面反射的比率。<br>菲涅尔现象，表现为当观察方向与平面法线夹角越大时，反射的占比越高。
-3. G，Geometry function，几何函数<br>描述了为平面自成阴影的属性。当一个平面相对比较粗糙的时候，平面上的微平面有可能挡住其他微平面，从而减小表面所反射的光线。<br>![PBR-GeometryFunction-GeometryObstruction](./img/PBR-GeometryFunction-GeometryObstruction.jpg)
+3. G，Geometry function，几何函数<br>描述了为平面自成阴影的属性。当一个平面相对比较粗糙的时候，平面上的微平面有可能挡住其他微平面，从而减小表面所反射的光线。<br>![PBR-GeometryFunction-GeometryObstruction](PBR-GeometryFunction-GeometryObstruction.jpg)
 
 目前，这三种函数已经有大量不同的实现，也都有各自的侧重。这里记录UE4中选择的函数：
 - D 使用的是 *Trowbridge-Reitz GGX* 
